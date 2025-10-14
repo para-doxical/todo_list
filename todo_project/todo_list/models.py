@@ -14,5 +14,5 @@ class Task(models.Model):
     modified_at = models.DateTimeField(null=True, auto_now=True)
     is_completed = models.BooleanField(default=False)
 
-    user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='tasks')
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name='tasks', blank=True, null=True)
 
