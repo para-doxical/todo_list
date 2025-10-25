@@ -1,0 +1,35 @@
+.cards-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.card {
+    width: 300px;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    flex-shrink: 1;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.3ms ease-in-out;  
+}
+.green-border {
+    border: 1px solid greenyellow;
+}
+.orange-border {
+    border: 1px solid orange;
+}
+.card:hover {
+    transform: scale(1.1);
+}
+.card > * {
+    margin: 0
+}
+.completed-container {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
