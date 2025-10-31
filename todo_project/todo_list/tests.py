@@ -10,7 +10,6 @@ class homepageTests(TestCase):
         Task.objects.create(title='test_task', description='test_task_description')
         self.url_path = reverse('homepage')
         self.response = self.client.get(self.url_path)
-        print(self.url_path)
     
     def test_homepage_view_success_status(self):
         self.assertEqual(self.response.status_code, 200)
@@ -26,3 +25,5 @@ class homepageTests(TestCase):
     def test_homepage_contains_link_to_new_task_page(self):
         new_task_url = reverse('new_task')
         self.assertContains(self.response, f'href="{new_task_url}"')
+
+

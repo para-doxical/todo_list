@@ -1,23 +1,31 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Task, User
-
+from .forms import TaskForm
 
 def homepage(request):
     """View for the homepage."""
-    tasks = Task.objects.all()
+    tasks = Task.objects.order_by('is_completed')
 
     context = {'tasks' : tasks}
-    return render(request, 'homepage.html', context)
+    return render(request, 'todo_list/homepage.html', context)
 
 def new_task(request):
     """View for new task page."""
+    task_form = TaskForm()
+    if request.method == 'POST':
+        task_form = TaskForm(request.POST)
+        if task_form.is_valid():
+            created_task = task_form.save(commit=False)
+            created_task.user = User.objects.first()
+            created_task.save()
+            return redirect('homepage')
 
-    context = {}
-    return render(request, 'new_task.html', context)
+    context = {'task_form' : task_form}
+    return render(request, 'todo_list/new_task.html', context)
 
 def task_page(request, pk):
     """View for task page."""
     task = Task.objects.get(pk=pk)
 
     context = {'task' : task}
-    return render(request, 'task_page.html', context)
+    return render(request, 'todo_list/task_page.html', context)

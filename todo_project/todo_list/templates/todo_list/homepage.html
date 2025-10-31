@@ -1,15 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'todo_list/base.html' %}
 {% load static %}
 
 
 {% block header_links %}
-    <link rel="stylesheet" href="{% static 'css/task.css' %}">
+    <link rel="stylesheet" href="{% static 'todo_list/css/task.css' %}">
 {% endblock %}
 
 {% block main_content %}
     <a href="{% url 'new_task' %}" class="btn btn-primary">New task</a>
 
-    <div class="cards-container mt-4">
+    <div class="cards-container my-4">
         {% for task in tasks %}
             <a href="{% url 'task_page'  task.pk %}" class="card {% if task.is_completed %}border border-success{% else %}border border-warning{% endif %}">
                 <h4 class="header">{{ task.title }}</h4>
@@ -18,10 +18,10 @@
                 <hr class="{% if task.is_completed %}green-border{% else %}orange-border{% endif %}">
                 <p>
                     {% if task.is_completed %}
-                        <img src="{% static 'assets/done-icon.png' %}" width="20px"> Completed
+                        <img src="{% static 'todo_list/assets/done-icon.png' %}" width="20px"> Completed
                     {% else %}
                         <div class="completed-container">
-                            <img src="{% static 'assets/pending-icon.png' %}" width="20px"> Uncompleted
+                            <img src="{% static 'todo_list/assets/pending-icon.png' %}" width="20px"> Uncompleted
                         </div>
                     {% endif %}
                 </p>

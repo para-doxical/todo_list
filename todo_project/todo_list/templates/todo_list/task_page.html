@@ -1,6 +1,8 @@
-{% extends 'base.html' %}
+{% extends 'todo_list/base.html' %}
 
-{% title task.title %}
+{% block title %}
+    {{task.title}}
+{% endblock %}
 
 {% block main_content %}
     <h1>Title: {{task.title}}</h1>
