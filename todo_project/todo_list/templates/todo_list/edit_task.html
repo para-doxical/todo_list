@@ -1,0 +1,17 @@
+{% extends 'todo_list/base.html' %}
+
+{% block title %}
+    {{task.title}}
+{% endblock %}
+
+{% block main_content %}
+    <h1>Edit task: {{task.title}}</h1>
+    <br>
+    <div class="my-4">
+        <form method="POST" autocomplete="off" class="edit-task">
+            {% csrf_token %}
+            {{task_form.as_p}}
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+{% endblock %}

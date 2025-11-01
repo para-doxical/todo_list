@@ -1,9 +1,13 @@
 from django.urls import path, re_path
-from .views import homepage, new_task, task_page
+from . import views
 
 urlpatterns = [
-    path('', homepage, name='homepage'),
-    path('new/', new_task, name='new_task'),
-    re_path(r"^task/(?P<pk>\d+)/$", task_page, name='task_page'),
+    path('', views.homepage, name='homepage'),
+
+    path('new/', views.new_task, name='new_task'),
+
+    path("task/<str:pk>/", views.task_page, name='task_page'),
+
+    path('edit-task/<str:pk>/', views.edit_task, name='edit_task'),
  
 ]
