@@ -27,6 +27,10 @@ def task_page(request, pk):
     """View for task page."""
     task = Task.objects.get(pk=pk)
 
+    if request.method == 'POST':
+        task.is_completed = True
+        task.save()
+
     context = {'task' : task}
     return render(request, 'todo_list/task_page.html', context)
 

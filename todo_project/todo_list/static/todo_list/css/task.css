@@ -33,3 +33,9 @@
     gap: 5px;
     align-items: center;
 }
+
+.my-4.links {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}

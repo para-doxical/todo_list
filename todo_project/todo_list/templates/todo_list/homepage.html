@@ -2,9 +2,6 @@
 {% load static %}
 
 
-{% block header_links %}
-    <link rel="stylesheet" href="{% static 'todo_list/css/task.css' %}">
-{% endblock %}
 
 {% block main_content %}
     <a href="{% url 'new_task' %}" class="btn btn-primary">New task</a>
