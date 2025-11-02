@@ -47,3 +47,12 @@ def edit_task(request, pk):
     
     context = {'task_form' : task_form, 'task' : task}
     return render(request, 'todo_list/edit_task.html', context)
+
+def delete_task(request, pk):
+    task = Task.objects.get(id=pk)
+    if request.method == 'POST':
+        task.delete()
+        return redirect('homepage')
+
+    context = {'task' : task}
+    return render(request, 'todo_list/delete_task.html', context)

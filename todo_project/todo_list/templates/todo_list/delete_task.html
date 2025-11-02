@@ -1,0 +1,20 @@
+{% extends 'todo_list/base.html' %}
+
+{% block title %}
+    Delete - {{task.title}}
+{% endblock %}
+
+{% block main_content %}
+    <h2>Are you sure you want to delete: {{task.title}}</h2>
+    <br>
+    <div class="my-4 links delete-confirmation">
+        <form method="POST" autocomplete="off" class="delete-task">
+            {% csrf_token %}
+            {{task_form.as_p}}
+            <button type="submit" class="btn btn-danger">Yes</button>
+        </form>
+
+        <a href="{% url 'task_page' task.id %}" class="btn btn-secondary" style="margin-left: auto;">No</a>
+
+    </div>
+{% endblock %}

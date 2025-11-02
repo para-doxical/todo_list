@@ -1,11 +1,11 @@
 {% extends 'todo_list/base.html' %}
 
 {% block title %}
-    {{task.title}}
+    Edit - {{task.title}}
 {% endblock %}
 
 {% block main_content %}
-    <h1>Edit task: {{task.title}}</h1>
+    <h2>Edit task: {{task.title}}</h2>
     <br>
     <div class="my-4">
         <form method="POST" autocomplete="off" class="edit-task">

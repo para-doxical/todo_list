@@ -34,8 +34,11 @@
     align-items: center;
 }
 
-.my-4.links {
+.links {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
+}
+.links > .destructive-btn {
+    margin-left: auto;
 }
